@@ -11,15 +11,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/midudev/curso-platzi-react-avanzado.git"
+        "url": "git+https://github.com/frasser/prueba-petgram"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/midudev/curso-platzi-react-avanzado/issues"
+        "url": "https://github.com/frasser/prueba-petgram/issues"
     },
-    "homepage": "https://github.com/midudev/curso-platzi-react-avanzado#readme",
+    "homepage": "https://github.com/frasser/prueba-petgram#readme",
     "dependencies": {
         "react": "^16.13.1",
         "react-dom": "^16.13.1"
