@@ -4,6 +4,7 @@
     "description": "¡Sígueme en Youtube! https://www.youtube.com/midudev",
     "main": "index.js",
     "scripts": {
+        "now-build": "npm run build",
         "build": "webpack --mode production",
         "lint": "standard",
         "dev": "webpack-dev-server --open --mode development --host 192.168.0.3",
@@ -22,7 +23,8 @@
     "homepage": "https://github.com/frasser/prueba-petgram#readme",
     "dependencies": {
         "react": "^16.13.1",
-        "react-dom": "^16.13.1"
+        "react-dom": "^16.13.1",
+        "styled-components": "^5.1.1"
     },
     "standard": {
         "ignore": [
