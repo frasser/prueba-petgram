@@ -11,18 +11,25 @@ export const PhotoCard = ({ id, likes = 0, src }) => {
 
   useEffect(() => {
     // console.log(element_ref.current);
-    const observer = new window.IntersectionObserver(function (entries) {
-      //console.log(entries);
-      const { isIntersecting } = entries[0];
-      //console.log({ isIntersecting });
-      if (isIntersecting) {
-        console.log("si");
-        setShow(true);
-        observer.disconnect();
-      }
-    });
-    observer.observe(element_ref.current);
-  }, [element_ref]);
+
+    Promise.resolve(
+      typeof window.IntersectionObserver !== "undefined"
+        ? window.IntersectionObserver
+        : import("intersection-observer") //se requiere installar intersection observer
+    ).then(() => {
+      const observer = new window.IntersectionObserver(function (entries) {
+        //console.log(entries);
+        const { isIntersecting } = entries[0];
+        //console.log({ isIntersecting });
+        if (isIntersecting) {
+          //console.log("si");
+          setShow(true);
+          observer.disconnect();
+        }
+      });
+      observer.observe(element_ref.current);
+    }, [element_ref]);
+  });
 
   return (
     <Article ref={element_ref}>
