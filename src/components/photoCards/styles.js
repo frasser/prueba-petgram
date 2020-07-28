@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { fadeIn } from "../../styles/animation";
+
 export const ImgWrapper = styled.div`
   border-radius: 10px;
   display: block;
@@ -30,3 +31,11 @@ export const Button = styled.button`
     margin-right: 4px;
   }
 `;
+
+/*
+ forma de modificar iconos
+export const Uncora = styled(RiHeartLine)`
+  color: #333;
+  background-color: #333;
+`;
+*/
