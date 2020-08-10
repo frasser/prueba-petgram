@@ -23,15 +23,6 @@ export const Img = styled.img`
   width: 100%;
 `;
 
-export const Button = styled.button`
-  display: flex;
-  align-items: center;
-  padding-top: 8px;
-  & svg {
-    margin-right: 4px;
-  }
-`;
-
 /*
  forma de modificar iconos
 export const Uncora = styled(RiHeartLine)`
