@@ -9,13 +9,27 @@ export const NotRegisteredUser = () => (
       return (
         <Fragment>
           <RegisterMutation>
-            {(register) => {
+            {(register, { data, loading, error }) => {
               const onSubmit = ({ email, password }) => {
                 const input = { email, password };
                 const variables = { input };
-                register({ variables }).then(activateAuth);
+                register({ variables })
+                  .then(activateAuth)
+                  .catch((error) => {
+                    console.log(error.graphQLErrors[0].message);
+                  });
               };
-              return <UserForm title="Registrarse" onSubmit={onSubmit} />;
+              const errorMsg =
+                error &&
+                "El usario ya existe o hay algun problema, intente mas tarde";
+              return (
+                <UserForm
+                  disabled={loading}
+                  error={errorMsg}
+                  title="Registrarse"
+                  onSubmit={onSubmit}
+                />
+              );
             }}
           </RegisterMutation>
           <UserForm title="Iniciar sesion" onSubmit={activateAuth} />
