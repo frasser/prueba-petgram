@@ -8,6 +8,7 @@ export const Link = styled(LinkRouter)`
   text-decoration: none;
   width: 75px;
   text-decoration: none;
+  font-weight: 500;
 `;
 
 export const Image = styled.img`
