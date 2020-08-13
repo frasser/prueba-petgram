@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import Context from "../Context";
 import { UserForm } from "../components/userForm";
 import { RegisterMutation } from "../container/RegisterMutation";
+import { LoginMutation } from "../container/LoginMutation";
 
 export const NotRegisteredUser = () => (
   <Context.Consumer>
@@ -15,13 +16,11 @@ export const NotRegisteredUser = () => (
                 const variables = { input };
                 register({ variables })
                   .then(activateAuth)
-                  .catch((error) => {
-                    console.log(error.graphQLErrors[0].message);
+                  .catch((e) => {
+                    console.log(e.graphQLErrors[0].message);
                   });
               };
-              const errorMsg =
-                error &&
-                "El usario ya existe o hay algun problema, intente mas tarde";
+              const errorMsg = error && error.graphQLErrors[0].message;
               return (
                 <UserForm
                   disabled={loading}
@@ -32,7 +31,28 @@ export const NotRegisteredUser = () => (
               );
             }}
           </RegisterMutation>
-          <UserForm title="Iniciar sesion" onSubmit={activateAuth} />
+          <LoginMutation>
+            {(login, { data, loading, error }) => {
+              const onSubmit = ({ email, password }) => {
+                const input = { email, password };
+                const variables = { input };
+                login({ variables })
+                  .then(activateAuth)
+                  .catch((e) => {
+                    console.log(e.graphQLErrors[0].message);
+                  });
+              };
+              const errorMsg = error && error.graphQLErrors[0].message;
+              return (
+                <UserForm
+                  error={errorMsg}
+                  disabled={loading}
+                  title="Iniciar sesion"
+                  onSubmit={onSubmit}
+                />
+              );
+            }}
+          </LoginMutation>
         </Fragment>
       );
     }}
