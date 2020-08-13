@@ -8,10 +8,19 @@ export const UserForm = ({ title, onSubmit }) => {
   const email = useInputValue("");
   const password = useInputValue("");
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    //console.log("credenciales:", email.value, password.value);
+    onSubmit({
+      email: email.value,
+      password: password.value,
+    });
+  };
+
   return (
     <Fragment>
       <Title>{title}</Title>
-      <Form onSubmit={onSubmit}>
+      <Form onSubmit={handleSubmit}>
         <Input
           placeholder="Email"
           {...email}
