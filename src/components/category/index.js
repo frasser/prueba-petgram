@@ -8,10 +8,11 @@ export const Category = ({
   cover = DEFAULT_IMAGE,
   path = "#",
   emoji = "?",
+  name = "?",
   loading = true,
 }) => (
   <Link to={path}>
     <Image src={cover} loading={loading} />
-    {emoji}
+    {name}
   </Link>
 );

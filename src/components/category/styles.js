@@ -7,6 +7,7 @@ export const Link = styled(LinkRouter)`
   text-align: center;
   text-decoration: none;
   width: 75px;
+  text-decoration: none;
 `;
 
 export const Image = styled.img`
@@ -18,7 +19,7 @@ export const Image = styled.img`
   object-fit: cover;
   height: 75px;
   width: 75px;
-  margin-bottom: 5px;
+  margin-bottom: 1.5px;
   background-color: #ddd;
 `;
 

@@ -9,6 +9,7 @@ export const ImgWrapper = styled.div`
   padding: 56.25% 0 0 0;
   position: relative;
   width: 100%;
+  margin-top: 10px;
 `;
 export const Article = styled.article`
   min-height: 200px;
