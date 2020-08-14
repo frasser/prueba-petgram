@@ -1,13 +1,16 @@
 import React, { createContext, useState } from "react";
-const Context = createContext();
+export const Context = createContext();
 
 const Provider = ({ children }) => {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(() => {
+    return window.sessionStorage.getItem("token"); //funcion que lee del sessionStorage si el usuario esta registrado o no
+  });
 
   const value = {
     isAuth,
-    activateAuth: () => {
+    activateAuth: (token) => {
       setIsAuth(true);
+      window.sessionStorage.setItem("token", token); //se crea el token  se agrega el valor que llega por parametro token
     },
   };
 
