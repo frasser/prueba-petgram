@@ -12,6 +12,10 @@ const Provider = ({ children }) => {
       setIsAuth(true);
       window.sessionStorage.setItem("token", token); //se crea el token  se agrega el valor que llega por parametro token
     },
+    removeAuth: () => {
+      setIsAuth(false);
+      window.sessionStorage.removeItem("token");
+    },
   };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
