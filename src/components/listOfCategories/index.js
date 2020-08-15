@@ -19,7 +19,7 @@ function useCategoriesData() {
   return { categories, loading };
 }
 
-export const ListOfCategories = () => {
+const ListOfCategoriesComponents = () => {
   const { categories, loading } = useCategoriesData();
   const [showFixed, setShowFixed] = useState(false);
 
@@ -62,3 +62,6 @@ export const ListOfCategories = () => {
     </>
   );
 };
+
+export const ListOfCategories = React.memo(ListOfCategoriesComponents); //React.memo sirve para memorizar o recordar como estaba anteriormente sin necesidad de cambiar sus props.
+//es decir no se vuelve a renderizar si las props que recibe no son diferentes

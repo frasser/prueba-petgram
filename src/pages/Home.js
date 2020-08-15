@@ -4,7 +4,7 @@ import { ListOfPhotoCards } from "../container/ListOfPhotoCards";
 
 import { Helmet } from "react-helmet";
 
-export const Home = ({ categoryId }) => {
+const HomePage = ({ categoryId }) => {
   return (
     <Fragment>
       <Helmet>
@@ -19,3 +19,10 @@ export const Home = ({ categoryId }) => {
     </Fragment>
   );
 };
+
+export const Home = React.memo(HomePage, (prevProps, props) => {
+  return prevProps.categoryId === props.categoryId;
+});
+
+//React.memo sirve para memorizar o recordar como estaba anteriormente sin necesidad de cambiar sus props.
+//es decir no se vuelve a renderizar si las props que recibe no son diferentes
